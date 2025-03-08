@@ -1,36 +1,19 @@
-function factorial(n) {
-    let fact = 1;
-    if (fact >= n) {
-        console.log("Returning fact: fact = ", fact);
-        return fact;
+function factorial(n) { //O(n)
+    let fact = 1; //O(1)
+    if (fact >= n) { //O(1)
+        return fact; //O(1)
     }
-    for (i = 1; i <= n; i++) {
-        fact = fact * i;
+    for (let i = 1; i <= n; i++) { //runs n times -> O(n)
+        fact *= i; //O(1)
     }
-    console.log("Returning fact: fact = ", fact);
-    return fact;
+    return fact; //O(1)
 }
 
-function e(n) {
-    //let eTable = new Array(n+1);
-    let eTable = [];
-    //console.log("eTable = ", eTable);
-    //let facTable = factorial(n);
-    eTable[0] = 1;
-    console.log("eTable.length = ", eTable.length);
-    console.log("eTable should be [1]: ", eTable);
+function e(n) { //O(n^2)
+    let eulerVal = 1.0; //O(1)
 
-    for (i = 1; i <= n; i++) {
-        console.log("i = ", i);
-        console.log("factorial(", i, ") = ", factorial(i));
-        console.log("eTable[", i-1, "] = ", eTable[i-1]);
-        eTable[i] = 1.0 / factorial(i) + eTable[i-1];
-        //console.log("eTable.length after for loop = ", eTable.length);
-        console.log("factorial(", i, ") = ", factorial(i));
-        console.log("eTable[", i-1, "] = ", eTable[i-1]);
-        console.log("eTable = ", eTable);
+    for (let i = 1; i <= n; i++) { //runs n times -> O(n^2)
+        eulerVal += (1.0 / factorial(i)); //O(n)
     }
-    return eTable[n];
+    return eulerVal; //O(1)
 }
-
-console.log("e(3) = ", e(3));
