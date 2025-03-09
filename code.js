@@ -1,9 +1,9 @@
-function factorial(n) {
-    if(n === 0) return 1;
-    else return n * factorial(n - 1);
-}
+function e(n) { //O(n)
+    let eulerVal = 1.0; //O(1)
+    let fact = 1; //O(1)
 
-function e(n) {
-    if(n === 0) return 1;
-    else return 1.0 / factorial(n) + e(n - 1);
+    for (let i = 1; i <= n; i++) { //runs n times -> O(n)
+        eulerVal += (1.0 / (fact *= i)); //O(1)
+    }
+    return eulerVal; //O(1)
 }
